@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Timer</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="timer-display">
+      <span id="display">00 : 00 : 00</span>
+    </div>
+    <div class="timer-input">
+      <input type="number" id="hours" min="0" max="23" placeholder="00">
+      <label for="hours">시간</label>
+      <input type="number" id="minutes" min="0" max="59" placeholder="00">
+      <label for="minutes">분</label>
+      <input type="number" id="seconds" min="0" max="59" placeholder="00">
+      <label for="seconds">초</label>
+    </div>
+    <div class="buttons">
+      <button id="startBtn">START</button>
+      <button id="stopBtn">STOP</button>
+      <button id="resetBtn">RESET</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
