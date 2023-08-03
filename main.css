@@ -1,0 +1,38 @@
+body {
+    margin-left: 20%;
+    width: 50%;
+    height: 500px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+#all{
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+}
+#all:hover{
+    background-color: greenyellow;
+}
+#completion{
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+}
+#completion:hover{
+    background-color: greenyellow;
+}
+#incomplete{
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+}
+#incomplete:hover{
+    background-color: greenyellow;
+}
+.list {
+    text-align: center; /* 목록 가운데 정렬 */
+}
