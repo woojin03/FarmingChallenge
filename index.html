@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar with Memo</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <div class="calendar">
+        <div class="header">
+            <div class="nav">
+                <button class="prev" onclick="prevM()">&lt;</button>
+                <span class="year"></span> <span class="month"></span>
+                <button class="next" onclick="nextM()">&gt;</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="days">
+                <div class="day">일</div>
+                <div class="day">월</div>
+                <div class="day">화</div>
+                <div class="day">수</div>
+                <div class="day">목</div>
+                <div class="day">금</div>
+                <div class="day">토</div>
+            </div>
+            <div class="dates"></div>
+        </div>
+    </div>
+
+    <div class="memo-overlay" onclick="closeMemo()"></div>
+    <div class="memo-container">
+        <div class="memo-date"></div>
+        <textarea class="memo-input" placeholder="메모를 입력하세요"></textarea>
+        <button class="memo-save" onclick="saveMemo()">저장</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
