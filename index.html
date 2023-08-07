@@ -3,39 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar with Memo</title>
-    <link rel="stylesheet" href="main.css" />
+    <title>Image slider</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    rel="stylesheet">    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
-    <div class="calendar">
-        <div class="header">
-            <div class="nav">
-                <button class="prev" onclick="prevM()">&lt;</button>
-                <span class="year"></span> <span class="month"></span>
-                <button class="next" onclick="nextM()">&gt;</button>
-            </div>
+    <div class="box">
+        <div class="imgs">
+            <img src="./img/1.jpg" alt="1" />
+            <img src="./img/2.jpg" alt="2" />
+            <img src="./img/3.jpg" alt="3" />
+            <img src="./img/4.jpg" alt="4" />
         </div>
-        <div class="main">
-            <div class="days">
-                <div class="day">일</div>
-                <div class="day">월</div>
-                <div class="day">화</div>
-                <div class="day">수</div>
-                <div class="day">목</div>
-                <div class="day">금</div>
-                <div class="day">토</div>
-            </div>
-            <div class="dates"></div>
-        </div>
+            
+        <span class="material-icons-outlined prev">chevron_left</span>    
+        <span class="material-icons-outlined next">navigate_next</span>
     </div>
 
-    <div class="memo-overlay" onclick="closeMemo()"></div>
-    <div class="memo-container">
-        <div class="memo-date"></div>
-        <textarea class="memo-input" placeholder="메모를 입력하세요"></textarea>
-        <button class="memo-save" onclick="saveMemo()">저장</button>
-    </div>
-
-    <script src="main.js"></script>
 </body>
 </html>
