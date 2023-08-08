@@ -1,38 +1,94 @@
+const yearElement = document.querySelector('.year');
+const monthElement = document.querySelector('.month');
+const datesElement = document.querySelector('.dates');
+const memoOverlay = document.querySelector('.memo-overlay');
+const memoContainer = document.querySelector('.memo-container');
+const memoDateElement = document.querySelector('.memo-date');
+const memoInputElement = document.querySelector('.memo-input');
 
-const slider = document.querySelector(".slider");
-const slides = slider.querySelectorAll(".slide");
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
-let currentIndex = 0;
+let currentDate = new Date();
+let memoData = {};
 
-function showSlide(index) {
-    if (index < 0) {
-        currentIndex = slides.length - 1;
-    } else if (index >= slides.length) {
-        currentIndex = 0;
+function updateCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.toLocaleString('default', { month: 'long' });
+
+    yearElement.textContent = year;
+    monthElement.textContent = month;
+
+    datesElement.innerHTML = '';
+
+    const firstDay = new Date(year, currentDate.getMonth(), 1);
+    const lastDay = new Date(year, currentDate.getMonth() + 1, 0);
+
+    const startDayOfWeek = firstDay.getDay();
+
+    for (let i = 0; i < startDayOfWeek; i++) {
+        const emptyDate = document.createElement('div');
+        emptyDate.className = 'date empty';
+        datesElement.appendChild(emptyDate);
     }
 
-    slides.forEach(slide => {
-        slide.style.display = "none";
-    });
+    for (let date = 1; date <= lastDay.getDate(); date++) {
+        const dateElement = document.createElement('div');
+        dateElement.textContent = date;
+        dateElement.className = 'date';
+        dateElement.setAttribute('onclick', `showMemoForm(${date})`);
 
-    slides[currentIndex].style.display = "block";
+        const dateString = getDateString(currentDate, date);
+        if (memoData[dateString]) {
+            dateElement.classList.add('memo-exists');
+        }
+
+        datesElement.appendChild(dateElement);
+    }
 }
 
-function nextSlide() {
-    currentIndex++;
-    showSlide(currentIndex);
+function prevM() {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    updateCalendar();
 }
 
-function prevSlide() {
-    currentIndex--;
-    showSlide(currentIndex);
+function nextM() {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    updateCalendar();
 }
 
-nextButton.addEventListener("click", nextSlide);
+function getDateString(dateObj, day) {
+    const year = dateObj.getFullYear();
+    const month = dateObj.getMonth() + 1;
+    return `${month}/${day}`;
+}
 
-prevButton.addEventListener("click", prevSlide);
+function showMemoForm(day) {
+    const dateString = getDateString(currentDate, day);
 
-showSlide(currentIndex);
+    memoOverlay.style.display = 'block';
+    memoContainer.style.display = 'block';
+    memoDateElement.textContent = dateString;
 
-setInterval(nextSlide, 2000);
+    if (memoData[dateString]) {
+        memoInputElement.value = memoData[dateString];
+    } else {
+        memoInputElement.value = '';
+    }
+}
+
+function closeMemo() {
+    memoOverlay.style.display = 'none';
+    memoContainer.style.display = 'none';
+}
+
+function saveMemo() {
+    const dateString = memoDateElement.textContent;
+    const memo = memoInputElement.value.trim();
+
+    if (memo !== '') {
+        memoData[dateString] = memo;
+        updateCalendar();
+    }
+
+    closeMemo();
+}
+
+updateCalendar();
