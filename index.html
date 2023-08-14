@@ -1,30 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="main.css">
-    <title>Image Slider</title>
+    <style>
+        .alert {
+            display: none;
+            color: #FF5733;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .login-form.submitted .alert {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="./img/image1.jpg" alt="Image 1">
-            </div>
-            <div class="slide">
-                <img src="./img/image2.jpg" alt="Image 2">
-            </div>
-            <div class="slide">
-                <img src="./img/image3.jpg" alt="Image 3">
-            </div>
-            <div class="slide">
-                <img src="./img/image4.jpg" alt="Image 4">
-            </div>
-        </div>
-        <button class="prev-button">&#10094;</button>
-        <button class="next-button">&#10095;</button>
+    <div class="login-img">
+        <img src="img/logo.jpg" alt="login-img" />
     </div>
-    <script src="main.js"></script>
+    <form action="" class="login-form">
+        <input
+        name="username"
+        type="text"
+        required
+        autocomplete="off"
+        pattern=".{4,}"
+        title="아이디가 틀렸습니다"
+        placeholder="아이디"
+        />
+        <br>
+        <input
+        name="password"
+        type="password"
+        required
+        autocomplete="on"
+        pattern=".{4,}"
+        title="비밀번호가 틀렸습니다"
+        placeholder="비밀번호"
+        />
+        <p>비밀번호를 잊으셨나요?</p>
+        <input type="submit" value="로그인" id="loginBtn"/>
+        <p class="alert">ID 혹은 PW가 잘못되었습니다.</p>
+    </form>
+
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.querySelector('[name="username"]').value;
+            const password = document.querySelector('[name="password"]').value;
+
+            if (username === '1234' && password === '1234') {
+                const successAlert = document.querySelector('.alert');
+                successAlert.textContent = '로그인이 되었습니다.';
+                successAlert.style.color = '#4CAF50';
+                successAlert.style.display = 'block';
+            } else {
+                const failureAlert = document.querySelector('.alert');
+                failureAlert.textContent = 'ID 혹은 PW가 잘못되었습니다.';
+                failureAlert.style.display = 'block';
+            }
+
+            const loginForm = document.querySelector('.login-form');
+            loginForm.classList.add('submitted');
+        });
+        
+    </script>
 </body>
 </html>

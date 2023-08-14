@@ -1,38 +1,20 @@
+document.querySelector('.login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.querySelector('[name="username"]').value;
+    const password = document.querySelector('[name="password"]').value;
 
-const slider = document.querySelector(".slider");
-const slides = slider.querySelectorAll(".slide");
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
-let currentIndex = 0;
+    const popupToast = document.querySelector('.popup-toast');
 
-function showSlide(index) {
-    if (index < 0) {
-        currentIndex = slides.length - 1;
-    } else if (index >= slides.length) {
-        currentIndex = 0;
+    if (username === '1234' && password === '1234') {
+        popupToast.textContent = '로그인이 성공적으로 이루어졌습니다.';
+        popupToast.style.backgroundColor = '#4CAF50';
+        popupToast.style.display = 'block';
+    } else {
+        popupToast.textContent = 'ID 혹은 PW가 잘못되었습니다.';
+        popupToast.style.backgroundColor = '#FF5733';
+        popupToast.style.display = 'block';
     }
 
-    slides.forEach(slide => {
-        slide.style.display = "none";
-    });
-
-    slides[currentIndex].style.display = "block";
-}
-
-function nextSlide() {
-    currentIndex++;
-    showSlide(currentIndex);
-}
-
-function prevSlide() {
-    currentIndex--;
-    showSlide(currentIndex);
-}
-
-nextButton.addEventListener("click", nextSlide);
-
-prevButton.addEventListener("click", prevSlide);
-
-showSlide(currentIndex);
-
-setInterval(nextSlide, 2000);
+    const loginForm = document.querySelector('.login-form');
+    loginForm.classList.add('submitted');
+});
