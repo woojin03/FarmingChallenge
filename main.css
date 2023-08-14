@@ -1,41 +1,48 @@
-
-.slider-container {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.slider {
-    display: flex;
+html,
+body{
     overflow: hidden;
+    margin-bottom: 10px;
 }
+.login-img{
+    height: 70px;
+    border-bottom: 2px solid gainsboro;
+    margin-bottom: 50px;
+}
+img{
+    display: cover;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.login-form input{
+    padding: 15px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+p{
+    text-align: right;
+    color: grey;
+}
+.login-form input:not([type="submit"]){
+    color: black;
+    transition: border-color .3s ease-in-out;
+}
+        .popup-toast {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
 
-.slide {
-    display: none;
-}
-
-.prev-button,
-.next-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-.prev-button {
-    left: 10px;
-}
-
-.next-button {
-    right: 10px;
-}
+        .login-form.submitted .popup-toast {
+            display: block;
+        }
