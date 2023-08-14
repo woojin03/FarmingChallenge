@@ -1,30 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>Image Slider</title>
+    <title>main</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">
-                <img src="./img/image1.jpg" alt="Image 1">
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="logo">
             </div>
-            <div class="slide">
-                <img src="./img/image2.jpg" alt="Image 2">
-            </div>
-            <div class="slide">
-                <img src="./img/image3.jpg" alt="Image 3">
-            </div>
-            <div class="slide">
-                <img src="./img/image4.jpg" alt="Image 4">
+            <div class="hamburger-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </div>
-        <button class="prev-button">&#10094;</button>
-        <button class="next-button">&#10095;</button>
-    </div>
-    <script src="main.js"></script>
+        <nav class="main-menu">
+            <ul class="menu">
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>FAQ</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="dots-container">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="service">
+                    <p>서비스 런칭</p>
+                </div>
+                <div class="slide">
+                    <p>마케팅 콘텐츠 제작을 위한 일러스트 기능 익히기</p>
+                </div>
+                <div class="slide">
+                    <p>브랜드 아이덴티티를 도출하는 방법</p>
+                </div>
+                <div class="slide">
+                    <p>현직자에게 배우는 디지털 마케팅 A to Z</p>
+                </div>
+                <div class="slide">
+                    <p>현직자가 알려주는 uxui 디자인의 모든 것</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="info">
+                <h2>
+                    <span>커리어 성장으로 가는 길</span><br>
+                    업계 사람들이 주목하는 스킬을 찾고, 스킬업에서 경쟁력을 키워 보세요.
+                </h2>
+            </div>
+    </main>
+    <script src="./js/main.js"></script>
 </body>
 </html>
